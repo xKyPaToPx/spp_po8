@@ -1,0 +1,14 @@
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\bin\Debug\net8.0\sppLab2z2.exe
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\bin\Debug\net8.0\sppLab2z2.deps.json
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\bin\Debug\net8.0\sppLab2z2.runtimeconfig.json
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\bin\Debug\net8.0\sppLab2z2.dll
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\bin\Debug\net8.0\sppLab2z2.pdb
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.AssemblyInfoInputs.cache
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.AssemblyInfo.cs
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.csproj.CoreCompileInputs.cache
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.dll
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\refint\sppLab2z2.dll
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.pdb
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\sppLab2z2.genruntimeconfig.cache
+C:\Other\BSTUs2\SPP\lab2\sppLab2\sppLab2z2\obj\Debug\net8.0\ref\sppLab2z2.dll
