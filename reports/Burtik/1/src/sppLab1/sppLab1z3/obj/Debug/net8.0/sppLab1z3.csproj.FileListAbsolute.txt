@@ -1,0 +1,14 @@
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\bin\Debug\net8.0\sppLab1z3.exe
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\bin\Debug\net8.0\sppLab1z3.deps.json
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\bin\Debug\net8.0\sppLab1z3.runtimeconfig.json
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\bin\Debug\net8.0\sppLab1z3.dll
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\bin\Debug\net8.0\sppLab1z3.pdb
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.AssemblyInfoInputs.cache
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.AssemblyInfo.cs
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.csproj.CoreCompileInputs.cache
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.dll
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\refint\sppLab1z3.dll
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.pdb
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\sppLab1z3.genruntimeconfig.cache
+C:\Other\BSTUs2\SPP\lab1\sppLab1\sppLab1z3\obj\Debug\net8.0\ref\sppLab1z3.dll
