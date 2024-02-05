@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Task2</id>
+    <version>1.0.0</version>
+    <authors>Task2</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\SPFolder\SPP\Lab2\Task2\bin\Release\net8.0\Task2.runtimeconfig.json" target="lib\net8.0\Task2.runtimeconfig.json" />
+    <file src="C:\SPFolder\SPP\Lab2\Task2\bin\Release\net8.0\Task2.dll" target="lib\net8.0\Task2.dll" />
+  </files>
+</package>

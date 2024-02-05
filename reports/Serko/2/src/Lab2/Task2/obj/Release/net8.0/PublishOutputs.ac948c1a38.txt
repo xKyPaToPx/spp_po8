@@ -1,0 +1,5 @@
+C:\Новая папка\SPLabs\SPP\Lab2\Task2\bin\Release\net8.0\publish\Task2.exe
+C:\Новая папка\SPLabs\SPP\Lab2\Task2\bin\Release\net8.0\publish\Task2.dll
+C:\Новая папка\SPLabs\SPP\Lab2\Task2\bin\Release\net8.0\publish\Task2.deps.json
+C:\Новая папка\SPLabs\SPP\Lab2\Task2\bin\Release\net8.0\publish\Task2.runtimeconfig.json
+C:\Новая папка\SPLabs\SPP\Lab2\Task2\bin\Release\net8.0\publish\Task2.pdb
