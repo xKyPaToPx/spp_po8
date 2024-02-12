@@ -57,6 +57,7 @@ target/
 *.suo
 *.bin
 *.BuildWithSkipAnalyzers
+Debug/
 
 # Common
 *.json
