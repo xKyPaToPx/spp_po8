@@ -39,3 +39,22 @@ replay_pid*
 # Maven
 log/
 target/
+
+# C Sharp
+*.sln
+*.pdb
+*.cache
+*.editorconfig
+*.AssemblyInfo.cs
+*.AssemblyAttributes.cs
+*.g.cs
+*.info
+*.props
+*.csproj
+*.targets
+
+# Common
+*.json
+*.dll
+*.exe
+*.txt
