@@ -1,8 +1,12 @@
+import java.util.Scanner;
+
 public class Task3 {
     public static void main(String[] args) {
         for (String arg : args)
         {
-            System.out.println(shiftRight(arg, 2));
+            Scanner scanner = new Scanner(System.in);
+            int shift = scanner.nextInt();
+            System.out.println(shiftRight(arg, shift));
         }
     }
 

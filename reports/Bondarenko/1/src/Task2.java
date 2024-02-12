@@ -1,4 +1,6 @@
+import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
@@ -12,7 +14,12 @@ public class Task2 {
             }
         }
 
-        int startIndex = 1, endIndex = 3;
+        int startIndex, endIndex;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите первый индекс:");
+        startIndex = scanner.nextInt();
+        System.out.println("Введите второй индекс:");
+        endIndex = scanner.nextInt();
         System.out.println(Arrays.toString(subarray(array, startIndex, endIndex)));
     }
 
