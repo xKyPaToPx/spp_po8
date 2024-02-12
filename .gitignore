@@ -52,6 +52,11 @@ target/
 *.props
 *.csproj
 *.targets
+*.v2
+*.vsidx
+*.suo
+*.bin
+*.BuildWithSkipAnalyzers
 
 # Common
 *.json
