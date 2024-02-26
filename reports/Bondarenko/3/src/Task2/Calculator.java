@@ -25,7 +25,12 @@ public class Calculator {
                     stack.pop();
                     break;
                 case "PUSH":
-                    stack.push(Double.parseDouble(params[1]));
+                    try {
+                        stack.push(Double.parseDouble(params[1]));
+                    }
+                    catch (Exception e) {
+                        throw new CommandParseException("Ошибка извлечения значения!");
+                    }
                     break;
                 case "+":
                     if (stack.size() < 2) {
@@ -59,6 +64,8 @@ public class Calculator {
                     b = stack.pop();
 
                     if (b == 0) {
+                        stack.push(b);
+                        stack.push(a); // сохранить извлеченные операнды в стеке
                         throw new OperationExecutionException("Деление на 0!");
                     }
                     stack.push(a / b);
@@ -70,6 +77,7 @@ public class Calculator {
                     a = stack.pop();
 
                     if (a < 0) {
+                        stack.push(a); // сохранить извлеченные операнды в стеке
                         throw new OperationExecutionException("Извлечение корня из отрицательного числа!");
                     }
                     stack.push(Math.sqrt(a));

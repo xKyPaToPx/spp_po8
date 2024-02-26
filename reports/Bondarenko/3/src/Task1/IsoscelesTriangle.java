@@ -35,16 +35,17 @@ public class IsoscelesTriangle {
         return Math.sqrt(semiperimeter * (semiperimeter - sideA) * (semiperimeter - sideB) * (semiperimeter - sideC));
     }
 
-    public boolean isExists() { return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA; }
+    // проверка, может ли сущестовать такой треугольник
+    public boolean isTriangleExists() { return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA; }
 
+    // проверка, яаляется ли треугольник равнобедренным
     public boolean isIsoscelesTriangle() {
         return (sideA == sideB && sideB != sideC) || (sideA == sideC && sideC != sideB) || (sideB == sideC && sideC != sideA);
     }
 
     @Override
     public String toString() {
-        String text = "sideA: " + sideA + "\nsideB: " + sideB + "\nsideC: " + sideC;
-        return super.toString();
+        return "{ sideA: " + sideA + ", sideB: " + sideB + ", sideC: " + sideC + " }";
     }
 
     @Override
