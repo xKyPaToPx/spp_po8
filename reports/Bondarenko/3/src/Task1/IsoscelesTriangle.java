@@ -40,7 +40,9 @@ public class IsoscelesTriangle {
 
     // проверка, яаляется ли треугольник равнобедренным
     public boolean isIsoscelesTriangle() {
-        return (sideA == sideB && sideB != sideC) || (sideA == sideC && sideC != sideB) || (sideB == sideC && sideC != sideA);
+        return (sideA == sideB) ||
+                (sideA == sideC) ||
+                (sideB == sideC);
     }
 
     @Override
