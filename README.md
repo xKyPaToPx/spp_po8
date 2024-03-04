@@ -14,7 +14,7 @@
 
 Тексты лабораторных: https://drive.google.com/drive/folders/1ilEacMw6l9YWl8M2EHhdJ5-jAk6uQ9Ke?usp=share_link
 
-Списки групп: 
+Списки групп:
 
 ## Группа ПО-8
 
