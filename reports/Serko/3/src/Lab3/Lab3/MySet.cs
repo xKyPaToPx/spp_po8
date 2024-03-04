@@ -33,11 +33,18 @@ namespace Lab3
 
         }
 
-        public void AddToList(float value)
+        public void Add(float value)
         {
-            
-            _list.Add(value);
-            
+            if (!(_list.Contains(value)))
+            {
+                _list.Add(value);
+
+            }
+            else
+            {
+                Console.WriteLine($"{value} is already in {this.name}");
+            }
+
         }
         public void PrintValues()
         {
@@ -47,7 +54,7 @@ namespace Lab3
             {
                 Console.WriteLine(item);
 
-            }         
+            }
         }
         public void Remove(float number)
         {
@@ -61,7 +68,7 @@ namespace Lab3
                 return false;
             }
             return true;
-        
+
         }
         public void Intersection(MySet obj)
         {
@@ -71,7 +78,7 @@ namespace Lab3
             {
                 if (obj.Contains(item))
                 {
-                   
+
                     intersection.Add(item);
                 }
 
@@ -95,7 +102,7 @@ namespace Lab3
             if (_list.Count != obj._list.Count) return false;
             for (int i = 0; i < _list.Count; i++)
             {
-                if (_list[i] != obj._list[i])
+                if (!(_list.Contains(obj._list[i])))
                 {
                     return false;
 
