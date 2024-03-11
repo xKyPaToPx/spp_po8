@@ -12,10 +12,15 @@ public class Main {
         int size = arr[0];
 
         double[][] array = new double[size][size];
+        int t = 0;
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                array[i][j]=1;
-            }
+            array[i][t] = 1;
+            t++;
+            /*for (int j = 0; j < size; j++) {
+                if((i+j)%size==i+j) {
+                    array[i][j] = 1;
+                }
+            }*/
         }
 
         for (int i = 0; i < size; i++) {

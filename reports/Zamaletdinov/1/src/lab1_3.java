@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-    args[0] = capitalize(args[0]);
+    //args[0] = capitalize(args[0]);
         for (String arg : args) {
+            arg = capitalize(arg);
             System.out.print(arg + " ");
         }
     }

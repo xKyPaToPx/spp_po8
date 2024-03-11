@@ -13,7 +13,10 @@ public class Main {
         for(int el:arr){
             sum+= el;
         }
-
+        if(arr.length == 0){
+            System.out.println("Division by 0");
+            return;
+        }
         int avg = sum/arr.length;
 
         int counter = 0;
