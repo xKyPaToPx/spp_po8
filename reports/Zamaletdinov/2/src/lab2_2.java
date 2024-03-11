@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Stack;
 
 public class Main {
@@ -52,10 +53,11 @@ public class Main {
                     }
                 }
             }
-            Iterator<String> iterator = tailLines.iterator();
-            while (iterator.hasNext()) {
-                System.out.print(iterator.next());
+            ListIterator<String> listIterator = tailLines.listIterator(tailLines.size());
+            while (listIterator.hasPrevious()) {
+                System.out.print(listIterator.previous());
             }
+
         } catch (IOException e) {
             System.out.println("Error reading the file: " + e.getMessage());
         }
