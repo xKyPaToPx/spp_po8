@@ -1,8 +1,6 @@
 package Lab3;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.time.Year;
 import java.util.ArrayList;
 
@@ -28,7 +26,12 @@ class CarRent {
                     switch (key) {
                         case "id":
                             car = new Car();
-                            car.setCarId(Integer.parseInt(value));
+                            try{
+                                car.setCarId(Integer.parseInt(value));
+                            }
+                            catch (NumberFormatException ex){
+                                System.out.println("Ошибка преобразования строки в число: " + ex.getMessage());
+                            }
                             break;
                         case "Brand":
                             car.setCarBrand(value);
@@ -37,13 +40,23 @@ class CarRent {
                             car.setCarModel(value);
                             break;
                         case "Year":
-                            car.setYear(Integer.parseInt(value));
+                            try{
+                                car.setYear(Integer.parseInt(value));
+                            }
+                            catch (NumberFormatException ex){
+                                System.out.println("Ошибка преобразования строки в число: " + ex.getMessage());
+                            }
                             break;
                         case "Color":
                             car.setCarColor(value);
                             break;
                         case "Price":
-                            car.setCarPrice(Double.parseDouble(value));
+                            try{
+                                car.setCarPrice(Double.parseDouble(value));
+                            }
+                            catch (NumberFormatException ex){
+                                System.out.println("Ошибка преобразования строки в число: " + ex.getMessage());
+                            }
                             break;
                         case "RegNumber":
                             car.setRegNum(value);
@@ -64,8 +77,9 @@ class CarRent {
                     }
                 }
             }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        }
+        catch (IOException ex) {
+            System.out.println("Файл не найден" + ex.getMessage());
         }
     }
 
