@@ -7,7 +7,7 @@ public class Wagon extends Vehicle {
         super(model, sign, horsesAmount * horsesSpeed, passengersCapacity, cargoCapacity);
         this.horsesAmount = horsesAmount;
         this.horsesSpeed = 10;
-        super.passengersCoefficient = 0.07;
+        super.passengersCoefficient = 1.0;
         super.cargoCoefficient = 0.1;
     }
 
@@ -31,9 +31,9 @@ public class Wagon extends Vehicle {
             return -1;
         }
         if (currentSpeed == 0) {
-            System.out.println("Автомобиль " + super.model + " " + super.sign + "стоит на месте");
+            System.out.println("Повозка " + super.model + " " + super.sign + "стоит на месте");
             return -1;
         }
-        return baseFare + super.currentPassengers + super.currentCargo * cargoCoefficient;
+        return baseFare + super.currentPassengers * passengersCoefficient + super.currentCargo * cargoCoefficient;
     }
 }
