@@ -11,17 +11,7 @@ public class Main {
         }
         int size = arr[0];
 
-        double[][] array = new double[size][size];
-        int t = 0;
-        for (int i = 0; i < size; i++) {
-            array[i][t] = 1;
-            t++;
-            /*for (int j = 0; j < size; j++) {
-                if((i+j)%size==i+j) {
-                    array[i][j] = 1;
-                }
-            }*/
-        }
+        double[][] array = makeIdentityMatrix(size);
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -29,5 +19,16 @@ public class Main {
             }
             System.out.print("\n");
         }
+    }
+
+    public static double[][] makeIdentityMatrix(int size){
+        double[][] array = new double[size][size];
+        int j = 0;
+        for (int i = 0; i < size; i++) {
+            array[i][j] = 1;
+            j++;
+        }
+
+        return array;
     }
 }
