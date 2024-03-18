@@ -4,52 +4,47 @@ internal class Program
 {
     static void Main()
     {
-        var str = RandomString(128, false);
-        Console.WriteLine(str);
+        // Проверка на допустимую длину строки
+        var str = RandomString(128, true);
+        if (str != null)
+        {
+            Console.WriteLine(str);
+        }
+        else
+        {
+            Console.WriteLine("Ошибка: Строка не была создана.");
+        }
     }
 
-    static string RandomString(int lenght, bool asciiOnly)
+    static string RandomString(int length, bool asciiOnly)
     {
-        if (asciiOnly)
+        // Проверка на отрицательную длину
+        if (length < 0)
         {
-            return RandomASCIIString(lenght);
+            Console.WriteLine("Длина строки не может быть отрицательной.");
+            return null;
         }
 
         int min = 0;
         int max = 255;
 
-        char[] chars = new char[lenght];
-
-        var rand = new Random();
-
-        for (int i = 0; i < lenght; i++)
+        if (asciiOnly)
         {
-            char character = (char)rand.Next(min, max + 1);
-            chars[i] = character;
+            min = 0x0021; // Начало печатаемых ASCII символов
+            max = 0x007E; // Конец печатаемых ASCII символов
         }
 
-        return new string(chars);
-    }
-
-    static string RandomASCIIString(int lenght)
-    {
-        int min = 0x0000;
-        int max = 0x007F;
-
-        char[] chars = new char[lenght];
+        char[] chars = new char[length];
 
         var rand = new Random();
 
-        for (int i = 0; i < lenght; i++)
+        for (int i = 0; i < length; i++)
         {
             char character = (char)rand.Next(min, max + 1);
-            if (!char.IsAscii(character))
-            {
-                Console.WriteLine((int)character);
-            }
             chars[i] = character;
         }
 
         return new string(chars);
     }
 }
+
