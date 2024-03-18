@@ -15,6 +15,7 @@ public class task1 {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
         Vector uniqueWords = new Vector();
+        Vector resultText = new Vector();
         String text="";
         while ((line = reader.readLine()) != null) {
             text +=line;
@@ -22,16 +23,20 @@ public class task1 {
         reader.close();
         String[] words = text.split(" ");
         for(String word:words){
-            if(!uniqueWords.contains(word.split("[;:,.?!]")[0])){
-                uniqueWords.add(word);
+            String[] tempWord = word.toLowerCase().split("[;:,.?!]");
+            if(tempWord.length!=0 && !uniqueWords.contains(tempWord[0])){
+                uniqueWords.add(tempWord[0]);
+                resultText.add(word);
             }
-            else if(word.split("[;:,.?!]").length>1){
-                    uniqueWords.add(word.charAt(word.length()-1));
+            else if(tempWord.length>1){
+                uniqueWords.add(tempWord[word.length()-1]);
+                resultText.add(word);
+            }
+            else if(tempWord.length==0){
+                resultText.add(word);
             }
         }
-
-
-        for(Object str : uniqueWords){
+        for(Object str : resultText){
             System.out.print(str+" ");
         }
     }

@@ -10,7 +10,7 @@ public class task2 {
         String fileName = "";
         for(int i=0;i<args.length;i++){
             if(args[i].contains("-b=") || args[i].contains("--bytes=")){
-                String[] temp = args[i].split("=")[1].split("[1234567890]");
+                String[] temp = args[i].split("=")[1].split("[0-9]");
                 String size = temp[temp.length-1];
                 if(size.equals("b")){
                     bytesNum = Integer.parseInt(args[i].split("=")[1].split("b")[0]);
