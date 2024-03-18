@@ -25,14 +25,17 @@ internal class Program
             return null;
         }
 
-        if (asciiOnly)
-        {
-            return RandomASCIIString(length);
-        }
-
         int min = 0;
         int max = 255;
 
+        if (asciiOnly)
+        {
+            min = 0x0021; // Начало печатаемых ASCII символов
+            max = 0x007E; // Конец печатаемых ASCII символов
+        }
+
+
+
         char[] chars = new char[length];
 
         var rand = new Random();
@@ -46,29 +49,5 @@ internal class Program
         return new string(chars);
     }
 
-    static string RandomASCIIString(int length)
-    {
-        // Проверка на отрицательную длину
-        if (length < 0)
-        {
-            Console.WriteLine("Длина строки не может быть отрицательной.");
-            return null;
-        }
-
-        int min = 0x0021; // Начало печатаемых ASCII символов
-        int max = 0x007E; // Конец печатаемых ASCII символов
-
-        char[] chars = new char[length];
-
-        var rand = new Random();
-
-        for (int i = 0; i < length; i++)
-        {
-            char character = (char)rand.Next(min, max + 1);
-            chars[i] = character;
-        }
-
-        return new string(chars);
-    }
 }
 
