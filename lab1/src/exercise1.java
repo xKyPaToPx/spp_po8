@@ -1,8 +1,17 @@
 package lab1;
+import java.util.Scanner;
 
 public class exercise1 {
     public static void main(String[] args) {
-        int[] N = {5, 1, 3, 1};
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите количество элементов в массиве: ");
+        int size = scanner.nextInt();
+
+        int[] N = new int[size];
+        System.out.print("Введите элементы массива: ");
+        for (int i = 0; i < size; i++) {
+            N[i] = scanner.nextInt();
+        }
 
         boolean allEqual = true;
         for (int i = 1; i < N.length; i++) {
@@ -13,9 +22,11 @@ public class exercise1 {
         }
 
         if (allEqual) {
-            System.out.println("равны");
+            System.out.println("Элементы массива равны.");
         } else {
-            System.out.println("не равны");
+            System.out.println("Элементы массива не равны.");
         }
+
+        scanner.close();
     }
 }
