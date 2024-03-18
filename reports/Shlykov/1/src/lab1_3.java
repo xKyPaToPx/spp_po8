@@ -10,22 +10,18 @@ public class lab1_3 {
             String result = capitalize(input);
             System.out.println("Результат капитализации: " + result);
         }
-    
-        public static String capitalize(String str) {
-            if (str == null) {
-                return null;
-            }
-            if (str.trim().isEmpty()) {
-                return str;
-            }
-            String[] words = str.trim().split("\\s+");
-            StringBuilder result = new StringBuilder();
-            for (String word : words) {
-                if (word.length() > 0) {
-                    result.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1)).append(" ");
-                }
-            }
-            return result.toString().trim();
+    public static String capitalize(String str) {
+        if (str == null) {
+            return null;
         }
-    }
-
+        if (str.trim().isEmpty()) {
+            return str;
+        }
+        String[] words = str.trim().split("\\s+");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                words[i] = Character.toUpperCase(words[i].charAt(0)) + words[i].substring(1);
+            }
+        }
+        return String.join(" ", words);
+    }}

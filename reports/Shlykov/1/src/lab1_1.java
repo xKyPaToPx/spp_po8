@@ -1,6 +1,9 @@
 public class lab1_1 {
-        public static void main(String[] args) {
-        int[] numbers = {50, 20, 5, 20, 15};
+    public static void main(String[] args) {
+        int[] numbers = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            numbers[i] = Integer.parseInt(args[i]);
+        }
         double average = calculateAverage(numbers);
         System.out.println("Среднее значение: " + average);
         double percent = calculatePercent(numbers, average);
