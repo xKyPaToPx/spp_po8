@@ -1,4 +1,10 @@
-﻿Console.WriteLine(SwapString(args[0]));
+﻿if (args.Length < 1)
+{
+    Console.WriteLine("error");
+    return;
+}
+
+Console.WriteLine(SwapString(args[0]));
 
 string SwapString(string str)
 {

@@ -1,7 +1,15 @@
-﻿double argsA = Convert.ToDouble(args[0]);
+﻿if (args.Length != 3)
+{
+    Console.WriteLine("Error");
+    return;
+}
+
+double argsA = Convert.ToDouble(args[0]);
 double argsB = Convert.ToDouble(args[1]);
 
 int argsSize = Convert.ToInt32(args[2]);
+
+
 var array = GenerateArray(argsA,argsB,argsSize);
 for (int i = 0; i < argsSize; i++)
 {
@@ -22,7 +30,7 @@ double[,] GenerateArray(double a, double b, int size)
     {
         for (int j = 0; j < size; j++)
         {
-            arr[i, j] = random.Next((int)a,(int)b+1) + random.NextDouble();
+            arr[i, j] = random.NextDouble() * (b-a) + a;
             if (arr[i, j] < a)
             {
                 arr[i, j] = a;
