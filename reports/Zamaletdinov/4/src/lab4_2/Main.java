@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        StarSystem solarSystem = new StarSystem(new Star("Sun", "G-type"));
+        StarType type = StarType.G_TYPE;
+        StarSystem solarSystem = new StarSystem(new Star("Sun", type));
 
         Planet mercury = new Planet("Mercury", 0.39);
         Planet venus = new Planet("Venus", 0.72);

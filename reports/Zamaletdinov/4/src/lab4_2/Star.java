@@ -1,8 +1,8 @@
 class Star {
     private String name;
-    private String type;
+    private StarType type;
 
-    public Star(String name, String type) {
+    public Star(String name, StarType type) {
         this.name = name;
         this.type = type;
     }
