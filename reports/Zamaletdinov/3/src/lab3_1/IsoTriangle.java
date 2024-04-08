@@ -5,10 +5,10 @@ import java.util.Objects;
 public class IsoTriangle {
     private double sideA, sideB, sideC;
 
-    public IsoTriangle(double sideA, double sideB, double sideC) {
+    public IsoTriangle(double sideA, double sideB) {
         this.sideA = sideA;
         this.sideB = sideB;
-        this.sideC = sideC;
+        this.sideC = sideB;
     }
 
     public void setSideA(double sideA) {
@@ -33,10 +33,6 @@ public class IsoTriangle {
 
     public boolean isExist(){
         return sideA + sideB > sideC && sideB + sideC > sideA && sideA + sideC > sideB;
-    }
-
-    public boolean isIsoTriangle(){
-        return sideA==sideB || sideA==sideC || sideB==sideC;
     }
 
     public double getPerimeter(){
