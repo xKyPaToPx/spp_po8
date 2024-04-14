@@ -1,62 +1,123 @@
 package task02;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.*;
 
 public class task02 {
     public static void main(String[] args) {
-        int index;
-        boolean isSoption = false;
-        String separator = "\t";
-        Scanner scanner = new Scanner(System.in);
-        List<String> list = Arrays.asList(scanner.nextLine().split("\\s"));
-        if (!list.get(0).equals("paste")) {
-            System.out.println("You entered incorrect command");
-        } else {
-            if ((index = list.indexOf("-s")) > 0 && index <= 3) {
-                isSoption = true;
-            }
-            if ((index = list.indexOf("-d")) > 0 && index <= 2) {
-                separator = list.get(index + 1);
-            }
-            int size = list.size();
-            makePasteCommand(isSoption, separator, list.get(size - 2), list.get(size -
-                    1));
+        int argsCount = args.length;
+        if (argsCount < 1 || argsCount > 5) {
+            System.out.println("Incorrect format. " +
+                    "Try: paste [-s][-d] [file1 [file2]..]");
+            return;
         }
-    }
-    private static void makePasteCommand(boolean isSoption, String separator, String
-            file1, String file2) {
-        List<String> file1Strings = readFile(file1);
-        List<String> file2Strings = readFile(file2);
-        if (isSoption) {
 
-            printString(file1Strings, separator);
-            printString(file2Strings, separator);
+        boolean swap = false;
+        List<Character> delimiter = new ArrayList<>();
+        delimiter.add('\t');
+        List<List<String>> textFromFiles = new ArrayList<>();
+
+        for (int i = 0; i < argsCount; i++) {
+            switch (args[i]) {
+                case "-s":
+                    swap = true;
+                    break;
+                case "-d":
+                    if (!args[i + 1].contains(".txt")) {
+                        delimiter = divideStringToDelimiters(args[i + 1]);
+                        i++;
+                    } else {
+                        System.out.println("The delimiters " +
+                                "were not provided!");
+                        return;
+                    }
+                    break;
+                default:
+                    textFromFiles.add(readTextFromFile(args[i]));
+            }
+        }
+
+        int index = 0;
+        int delimiterCount = delimiter.size();
+
+        if (textFromFiles.size() == 1) {
+            for (String line : textFromFiles.get(0)) {
+                if (swap) {
+                    System.out.print(line +
+                            delimiter.get(index % delimiterCount));
+                } else {
+                    System.out.println(line +
+                            delimiter.get(index % delimiterCount));
+                }
+                index++;
+            }
         } else {
-            for (int i = 0; i < file1Strings.size(); i++) {
-                System.out.println(file2Strings.get(i) + separator +
-                        file1Strings.get(i));
+            Iterator<String> iteratorFile1 = textFromFiles.get(0).iterator();
+            Iterator<String> iteratorFile2 = textFromFiles.get(1).iterator();
+
+            if (swap) {
+                while (iteratorFile1.hasNext()) {
+                    System.out.print(iteratorFile1.next() +
+                            delimiter.get(index % delimiterCount));
+                    index++;
+                }
+                System.out.println();
+                while (iteratorFile2.hasNext()) {
+                    System.out.print(iteratorFile2.next() +
+                            delimiter.get(index % delimiterCount));
+                    index++;
+                }
+            } else {
+                while (iteratorFile1.hasNext() && iteratorFile2.hasNext()) {
+                    System.out.println(iteratorFile1.next()
+                            + delimiter.get(index % delimiterCount)
+                            + iteratorFile2.next());
+                    index++;
+                }
             }
         }
     }
-    private static void printString(List<String> list, String separator) {
-        int indexLast = list.size() - 1;
-        for (int i = 0; i < indexLast; i++) {
-            System.out.print(list.get(i) + separator);
-        }
-        System.out.println(list.get(indexLast));
-    }
-    private static List<String> readFile(String fileName) {
-        List<String> list = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String string;
-            while ((string = br.readLine()) != null) {
-                list.add(string);
+
+    static ArrayList<String> readTextFromFile(String pathToFile) {
+        ArrayList<String> textFromFile = new ArrayList<>();
+        try (BufferedReader fileInput = new BufferedReader(new FileReader(pathToFile))) {
+            String nextString;
+            while ((nextString = fileInput.readLine()) != null) {
+                textFromFile.add(nextString);
             }
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        } catch (IOException e) {
+            System.out.println("Reading was interrupted.");
         }
-        return list;
+        return textFromFile;
+    }
+
+    static List<Character> divideStringToDelimiters(String delimitersFromArg) {
+        List<Character> arrayOfDelimiters = new ArrayList<>();
+        for (int i = 0; i < delimitersFromArg.length(); i++) {
+            char ch = delimitersFromArg.charAt(i);
+            if (ch == '\\') {
+                switch (delimitersFromArg.charAt(i + 1)) {
+                    case 'n':
+                        arrayOfDelimiters.add('\n');
+                        break;
+                    case 't':
+                        arrayOfDelimiters.add('\t');
+                        break;
+                    case 'r':
+                        arrayOfDelimiters.add('\r');
+                        break;
+                    default:
+                        arrayOfDelimiters.add('\\');
+                        i--;
+                        break;
+                }
+                i++;
+            } else {
+                arrayOfDelimiters.add(ch);
+            }
+        }
+        return arrayOfDelimiters;
     }
 }
