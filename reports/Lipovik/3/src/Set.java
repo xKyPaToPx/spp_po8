@@ -10,7 +10,7 @@ public class Set {
     }
     Set(int[] set){
         elements=set;
-        size=set.length-1;
+        size=set.length;
     }
     Set(){
         size=0;
