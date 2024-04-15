@@ -1,38 +1,60 @@
-﻿int col1 = 1;
-int col2 = 1;
-string fileName1, fileName2;
-string? fileName3 = null;
+﻿int col1 = 0;
+int col2 = 0;
+string fileName1;
+string? fileName2 = null, fileName3 = null;
 
 
 int numOfArgs = 0;
 if (args.Contains("-1"))
 {
     int iIndex = Array.IndexOf(args, "-1");
-    col1 = Convert.ToInt32(args[iIndex + 1]);
+    col1 = Convert.ToInt32(args[iIndex + 1]) - 1;
     numOfArgs += 2;
 }
 
 if (args.Contains("-2"))
 {
     int lIndex = Array.IndexOf(args, "-2");
-    col2 = Convert.ToInt32(args[lIndex + 1]);
+    col2 = Convert.ToInt32(args[lIndex + 1]) - 1;
     numOfArgs += 2;
 }
 
-if ((args.Length - numOfArgs) % 2 == 0)
+if (args.Length - numOfArgs == 1)
 {
-    fileName1 = args[^2];
-    fileName2 = args[^1];
+    fileName1 = args[^1];
 }
 else
 {
-    fileName1 = args[^3];
-    fileName2 = args[^2];
-    fileName3 = args[^1];
+    if ((args.Length - numOfArgs) % 2 == 0)
+    {
+        fileName1 = args[^2];
+        fileName2 = args[^1];
+    }
+    else
+    {
+        fileName1 = args[^3];
+        fileName2 = args[^2];
+        fileName3 = args[^1];
+    }
 }
 
 List<string[]> fileData1 = ReadData(fileName1);
-List<string[]> fileData2 = ReadData(fileName2);
+List<string[]> fileData2 = new List<string[]>();
+if (fileName2 == null)
+{
+    Console.WriteLine("Enter num of rows:");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Enter data in format: col1 col2 col3...");
+    for (int i = 0; i < n; i++)
+    {
+        string[] str = Console.ReadLine().Trim().Split(" ");
+        fileData2.Add(str);
+    }
+}
+else
+{
+    fileData2 = ReadData(fileName2);
+}
 List<string[]> fileData3 = new List<string[]>();
 
 foreach (var row1 in fileData1)
