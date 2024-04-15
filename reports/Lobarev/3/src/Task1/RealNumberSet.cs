@@ -67,13 +67,9 @@ public class RealNumberSet
         if (other == null || this.count != other.count)
             return false;
 
-        for (int i = 0; i < this.count; i++)
-        {
-            if (this.elements[i] != other.elements[i])
-                return false;
-        }
-        return true;
+        return this.elements.OrderBy(element => element).SequenceEqual(other.elements.OrderBy(element => element));
     }
+
 
     public override int GetHashCode()
     {
