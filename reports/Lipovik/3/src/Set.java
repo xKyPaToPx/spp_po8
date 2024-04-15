@@ -1,20 +1,16 @@
 import java.util.Arrays;
 
 public class Set {
+
     private int size;
     private int[] elements;
-
-    Set(int capacity){
-        size=0;
-        elements=new int[capacity];
-    }
-    Set(int[] set){
-        elements=set;
-        size=set.length;
+    Set(int _size){
+        size=_size;
+        elements=new int[0];
     }
     Set(){
-        size=0;
-        elements=new int[5];
+        size=5;
+        elements=new int[0];
     }
     public void merge(Set set){
         int[] newElements = new int[elements.length+set.elements.length];
@@ -23,17 +19,18 @@ public class Set {
         System.arraycopy(set.elements, 0, newElements, elements.length, set.elements.length);
         elements=new int[newElements.length];
         elements=Arrays.stream(Arrays.stream(newElements).sorted().toArray()).distinct().toArray();
+        size=elements.length;
     }
     @Override
     public String toString(){
         StringBuilder str= new StringBuilder();
-        for(int i=elements.length-size;i< elements.length;i++){
-            str.append(elements[i]).append("\n");
+        for(int element: elements){
+            str.append(element).append("\n");
         }
         return str.toString();
     }
     public int contains(int value){
-        for(int i=elements.length-size;i< elements.length;i++){
+        for(int i=0;i<elements.length;i++){
             if(elements[i]==value){
                 return i;
             }
@@ -46,18 +43,26 @@ public class Set {
         }
         else{
             if(contains(value)==-1){
-                elements[0]=value;
-                elements=Arrays.stream(elements).sorted().toArray();
-                size++;
+                int [] newElements = new int[elements.length+1];
+                for(int i=0;i<elements.length;i++){
+                    newElements[i]=elements[i];
+                }
+                newElements[elements.length]=value;
+                elements=newElements;
             }
         }
     }
     public void erase(int value){
         int index=contains(value);
         if(index!=-1){
-            elements[index]=0;
-            size--;
-            elements=Arrays.stream(elements).sorted().toArray();
+            int temp=elements[index];
+            elements[index]=elements[elements.length-1];
+            elements[elements.length-1]=temp;
+            int [] newElements = new int[elements.length-1];
+            for(int i=0;i<elements.length-1;i++){
+                newElements[i]=elements[i];
+            }
+            elements=Arrays.stream(Arrays.stream(newElements).sorted().toArray()).distinct().toArray();
         }
         else{
             System.out.println("the set does not contain this element!");
