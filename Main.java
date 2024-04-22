@@ -2,13 +2,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        if (args.length < 2) {
+            System.out.println("Использование: java Main <символ> <количество повторений>");
+            return;
+        }
 
-        System.out.println("Введите символ:");
-        char ch = scanner.next().charAt(0);
-
-        System.out.println("Введите количество повторений:");
-        int repeat = scanner.nextInt();
+        char ch = args[0].charAt(0);
+        int repeat = Integer.parseInt(args[1]);
 
         String repeatedString = repeat(ch, repeat);
         System.out.println("Результат: " + repeatedString);
