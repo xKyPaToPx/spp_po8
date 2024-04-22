@@ -22,6 +22,7 @@ public class Tour()
     public string Accommodation { get; set; }
     public string Nutrition { get; set; }
     public List<string> Place { get; set; }
+    
 
     public void Print()
     {
