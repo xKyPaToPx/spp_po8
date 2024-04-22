@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Catalog {
-    private ArrayList<Book> bookList;
+    private ArrayList<issueInformation> issueInformationList;
     Catalog(){
-        bookList = new ArrayList<>();
+        issueInformationList = new ArrayList<>();
     }
-    public static class Book{
+    public static class issueInformation {
         private String bookName;
         private String readerName;
         private String dateOfIssue;
-        Book(String _bookName, String _readerName, String _dateOfIssue){
+        issueInformation(String _bookName, String _readerName, String _dateOfIssue){
             bookName=_bookName;
             readerName=_readerName;
             dateOfIssue=_dateOfIssue;
@@ -46,20 +46,20 @@ public class Catalog {
     @Override
     public String toString(){
         String result = "";
-        for(Book book: bookList){
-            result+=book.toString();
+        for(issueInformation issueInformation : issueInformationList){
+            result+= issueInformation.toString();
         }
         return result;
     }
     public void addBook(String _bookName, String _readerName, String _dateOfIssue){
-        Book book = new Book(_bookName, _readerName, _dateOfIssue);
-        bookList.add(book);
+        issueInformation issueInformation = new issueInformation(_bookName, _readerName, _dateOfIssue);
+        issueInformationList.add(issueInformation);
     }
-    public void addBook(Book book){
-        bookList.add(book);
+    public void addBook(issueInformation issueInformation){
+        issueInformationList.add(issueInformation);
     }
 
-    public void setBookList(ArrayList<Book> bookList) {
-        this.bookList = bookList;
+    public void setBookList(ArrayList<issueInformation> issueInformationList) {
+        this.issueInformationList = issueInformationList;
     }
 }
