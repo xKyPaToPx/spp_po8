@@ -65,3 +65,5 @@ Debug/
 *.dll
 *.exe
 *.txt
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal
