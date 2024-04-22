@@ -1,64 +1,30 @@
-import java.util.Scanner;
-
 public class Task1 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Введите длину последовательности:");
-        int length = scanner.nextInt();
-
-        int[] sequence = new int[length];
-        System.out.println("Введите элементы последовательности:");
-        for (int i = 0; i < length; i++) {
-            sequence[i] = scanner.nextInt();
+        int[] sequence = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            sequence[i] = Integer.parseInt(args[i]);
         }
-
-        int min = findMin(sequence);
-        int max = findMax(sequence);
-        int sum = calculateSum(sequence);
-        int product = calculateProduct(sequence);
-
-        System.out.println("Минимальное значение: " + min);
-        System.out.println("Максимальное значение: " + max);
-        System.out.println("Сумма элементов: " + sum);
-        System.out.println("Произведение элементов: " + product);
-
-        scanner.close();
+        analyzeSequence(sequence);
     }
 
-    public static int findMin(int[] sequence) {
-        int min = sequence[0];
-        for (int num : sequence) {
-            if (num < min) {
-                min = num;
-            }
+    public static void analyzeSequence(int[] sequence) {
+        if (sequence.length == 0) {
+            System.out.println("Последовательность пуста");
+            return;
         }
-        return min;
-    }
-
-    public static int findMax(int[] sequence) {
-        int max = sequence[0];
-        for (int num : sequence) {
-            if (num > max) {
-                max = num;
-            }
-        }
-        return max;
-    }
-
-    public static int calculateSum(int[] sequence) {
+        int maxValue = Integer.MIN_VALUE;
+        int minValue = Integer.MAX_VALUE;
         int sum = 0;
+        long mult = 1;
         for (int num : sequence) {
+            maxValue = Math.max(maxValue, num);
+            minValue = Math.min(minValue, num);
             sum += num;
+            mult *= num;
         }
-        return sum;
-    }
-
-    public static int calculateProduct(int[] sequence) {
-        int product = 1;
-        for (int num : sequence) {
-            product *= num;
-        }
-        return product;
+        System.out.println("Максимальное значение: " + maxValue);
+        System.out.println("Минимальное значение: " + minValue);
+        System.out.println("Сумма: " + sum);
+        System.out.println("Произведение: " + mult);
     }
 }
