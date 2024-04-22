@@ -10,23 +10,33 @@ public class Main {
             arr_input[i] = Integer.parseInt(args[i]);
         }
         int amount_1 = 0, amount_2 = 0, amount_3 = 0; // номер зависит от количества цифр в числе 1 - однозначное 2- двузначное 3- трехзначное
+
         for (int i=0; i<arr_input.length;i++){
-            if((arr_input[i]/100) > 0)
-            {
-                amount_3+=1;
-            } else if ((arr_input[i]/10)>0) {
-                amount_2+=1;
-            }else{
-                amount_1+=1;
+            int noun_digit = 1;
+            while ((arr_input[i]/10)>0){
+                noun_digit+=1;
+                arr_input[i] = arr_input[i]/10;
             }
+            arr_input[i] = noun_digit;
         }
 
-        System.out.printf("Hello and welcome in lab1 please enter nouns: \n");
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(amount_3+" трехзначные\n"+amount_2+" двузначные\n"+amount_1+" однозначные\n");
-        int myint = keyboard.nextInt();
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
+
+        for (int i = 0; i < arr_input.length; i++) {
+            int amount =1;
+            int noun_digit = arr_input[i];
+            for(int j =i+1; j<arr_input.length;j++)
+            {
+                if(arr_input[i] == arr_input[j] && arr_input[j]!=0)
+                {
+                    amount +=1;
+                    arr_input[j] = 0;
+                }
+
+            }
+            if( noun_digit !=0)
+            {
+                System.out.println(noun_digit+" desyatkov: " + amount);
+            }
         }
     }
 }
