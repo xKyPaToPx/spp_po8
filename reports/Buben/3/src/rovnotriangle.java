@@ -1,38 +1,20 @@
 public class rovnotriangle {
-    private double sideA, sideB, sideC;
+    private double sideA;
 
     public rovnotriangle(double sideA) {
         this.sideA = sideA;
-        this.sideB = sideA;
-        this.sideC = sideA;
     }
 
     public double SideA() {
         return sideA;
     }
 
-    public double SideB() {
-        return sideB;
-    }
-
-    public double SideC() {
-        return sideC;
-    }
-
     public void setSideA(double sideA) {
         this.sideA = sideA;
     }
 
-    public void setSideB(double sideB) {
-        this.sideB = sideA;
-    }
-
-    public void setSideC(double sideC) {
-        this.sideC = sideA;
-    }
-
     public double peremiter() {
-        return sideA + sideB + sideC;
+        return 3 * sideA;
     }
 
     public double square() {
@@ -40,16 +22,16 @@ public class rovnotriangle {
     }
 
     public boolean existornot() {
-        return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
+        return 2 * sideA > sideA;
     }
 
     public boolean sidesequale() {
-        return (sideA == sideB && sideB == sideC && sideA == sideC);
+        return (sideA == sideA);
     }
 
     @Override
     public String toString() {
-        return "{ sideA: " + sideA + ", sideB: " + sideB + ", sideC: " + sideC + " }";
+        return "sideA: " + sideA;
     }
 
     @Override
@@ -63,7 +45,7 @@ public class rovnotriangle {
         }
 
         rovnotriangle other = (rovnotriangle) obj;
-        return sideA == other.sideA && sideB == other.sideB && sideC == other.sideC;
+        return sideA == other.sideA;
     }
 
     public static void main(String[] args) {
