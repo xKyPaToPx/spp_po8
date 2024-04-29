@@ -1,37 +1,31 @@
 public class Triangle {
-    private double sideA;
-    private double sideB;
-    private double sideC;
+    private double base;
+    private double side;
 
-    public Triangle(double sideA, double sideB, double sideC) {
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideC;
+    public Triangle(double base, double side) {
+        this.base = base;
+        this.side = side;
     }
 
-    public double getSideA() {
-        return sideA;
+    public double getBase() {
+        return base;
     }
 
-    public double getSideB() {
-        return sideB;
-    }
-
-    public double getSideC() {
-        return sideC;
+    public double getSide() {
+        return side;
     }
 
     public double getPerimeter() {
-        return sideA + sideB + sideC;
+        return 2 * side + base;
     }
 
     public double getArea() {
-        double s = getPerimeter() / 2;
-        return Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
+        double height = Math.sqrt(side * side - base * base / 4);
+        return base * height / 2;
     }
 
     public boolean isValid() {
-        return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
+        return 2 * side > base;
     }
 
     @Override
@@ -39,17 +33,16 @@ public class Triangle {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Triangle triangle = (Triangle) obj;
-        return Double.compare(triangle.sideA, sideA) == 0 &&
-                Double.compare(triangle.sideB, sideB) == 0 &&
-                Double.compare(triangle.sideC, sideC) == 0;
+        return Double.compare(triangle.base, base) == 0 &&
+                Double.compare(triangle.side, side) == 0;
     }
 
     @Override
     public String toString() {
-        return "Triangle{" +
-                "sideA=" + sideA +
-                ", sideB=" + sideB +
-                ", sideC=" + sideC +
+        return "IsoscelesTriangle{" +
+                "base=" + base +
+                ", side=" + side +
                 '}';
     }
 }
+
