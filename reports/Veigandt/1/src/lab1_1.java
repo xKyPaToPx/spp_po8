@@ -1,24 +1,27 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        if (args.length == 0) {
+            System.out.println("Необходимо передать количество чисел в качестве аргумента.");
+            return;
+        }
 
-        System.out.print("Введите количество чисел (N): ");
-        int n = scanner.nextInt();
+        int n = Integer.parseInt(args[0]);
 
         if (n <= 0) {
             System.out.println("Количество чисел должно быть больше нуля.");
             return;
         }
 
-        System.out.println("Введите последовательность " + n + " целых чисел:");
+        if (args.length != n + 1) {
+            System.out.println("Недостаточно чисел для ввода.");
+            return;
+        }
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-       
-        for (int i = 0; i < n; i++) {
-            int num = scanner.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            int num = Integer.parseInt(args[i]);
             if (num < min) {
                 min = num;
             }
@@ -26,8 +29,8 @@ public class Main {
                 max = num;
             }
         }
+
         int range = max - min;
         System.out.println("Размах последовательности: " + range);
-        scanner.close();
     }
 }
